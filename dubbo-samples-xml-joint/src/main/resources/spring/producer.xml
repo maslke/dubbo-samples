@@ -2,9 +2,14 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <dubbo:provider retries="3" timeout="5000" loadbalance="random" />
     <dubbo:application name="dubbo-producer" />
     <dubbo:registry address="zookeeper://localhost:2181" />
     <dubbo:protocol name="dubbo" port="20880" />
     <bean id="greetingService" class="com.maslke.dubbo.samples.xml.joint.service.impl.GreetingServiceImpl" />
-    <dubbo:service interface="com.maslke.dubbo.samples.xml.joint.api.GreetingService" ref="greetingService" />
+    <bean id="greetingService2" class="com.maslke.dubbo.samples.xml.joint.service.impl.GreetingServiceImpl2" />
+    <dubbo:service interface="com.maslke.dubbo.samples.xml.joint.api.GreetingService" ref="greetingService"
+                   version="1.0" group="group1" />
+    <dubbo:service interface="com.maslke.dubbo.samples.xml.joint.api.GreetingService" ref="greetingService2"
+                   version="1.0" group="group2" timeout="20000"/>
 </beans>

@@ -13,7 +13,7 @@ public class ConsumerApplication {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring/consumer.xml");
         applicationContext.start();
         GreetingService greetingService = applicationContext.getBean("greetingService", GreetingService.class);
-        System.out.println(greetingService.sayHi("the-whold-world"));
+        System.out.println(greetingService.sayHi("the-whole-world"));
         System.in.read();
     }
 }
