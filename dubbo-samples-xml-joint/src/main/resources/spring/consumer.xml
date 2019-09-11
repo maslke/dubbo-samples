@@ -7,7 +7,7 @@
     <dubbo:registry address="localhost:2181" protocol="zookeeper" check="true" id="zookeeper"/>
     <dubbo:registry protocol="multicast" />
     <dubbo:reference registry="zookeeper" interface="com.maslke.dubbo.samples.xml.joint.api.GreetingService"
-                     id="greetingService" version="1.0" group="group1"/>
+                     id="greetingService" version="2.0" loadbalance="random"/>
     <dubbo:reference registry="zookeeper" interface="com.maslke.dubbo.samples.xml.joint.api.GreetingService"
                      id="greetingService2" version="1.0" group="group2"/>
 </beans>

@@ -5,11 +5,8 @@
     <dubbo:provider retries="3" timeout="5000" loadbalance="random" />
     <dubbo:application name="dubbo-producer" />
     <dubbo:registry address="zookeeper://localhost:2181" />
-    <dubbo:protocol name="dubbo" port="20880" />
+    <dubbo:protocol name="dubbo" port="20881" />
     <bean id="greetingService" class="com.maslke.dubbo.samples.xml.joint.service.impl.GreetingServiceImpl" />
-    <bean id="greetingService2" class="com.maslke.dubbo.samples.xml.joint.service.impl.GreetingServiceImpl2" />
     <dubbo:service interface="com.maslke.dubbo.samples.xml.joint.api.GreetingService" ref="greetingService"
-                   version="1.0" />
-    <dubbo:service interface="com.maslke.dubbo.samples.xml.joint.api.GreetingService" ref="greetingService2"
-                   version="1.0" group="group2" timeout="20000"/>
+                   version="2.0" />
 </beans>
