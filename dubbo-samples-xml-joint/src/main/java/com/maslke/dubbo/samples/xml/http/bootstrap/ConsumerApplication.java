@@ -1,6 +1,7 @@
-package com.maslke.dubbo.samples.xml.joint.bootstrap;
+package com.maslke.dubbo.samples.xml.http.bootstrap;
 
-import com.maslke.dubbo.samples.xml.joint.api.GreetingService;
+import com.maslke.dubbo.samples.xml.http.api.GreetingService;
+import org.apache.dubbo.rpc.service.EchoService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -13,6 +14,8 @@ public class ConsumerApplication {
         ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring/consumer.xml");
         applicationContext.start();
         GreetingService greetingService = applicationContext.getBean("greetingService", GreetingService.class);
+        EchoService echoService = (EchoService) greetingService;
+        System.out.println(echoService.$echo("hello"));
         for (int i = 0; i < 100; i++) {
             System.out.println(greetingService.sayHi("the-whole-world"));
         }

@@ -1,6 +1,6 @@
-package com.maslke.dubbo.samples.xml.joint.service.impl;
+package com.maslke.dubbo.samples.xml.http.service.impl;
 
-import com.maslke.dubbo.samples.xml.joint.api.GreetingService;
+import com.maslke.dubbo.samples.xml.http.api.GreetingService;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.dubbo.rpc.RpcContext;

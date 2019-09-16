@@ -10,3 +10,10 @@ dubbo-samples
 1. 测试了消费者reference设置version="*"这种通配符之后的效果。
 2. 测试了loadbalance参数。设置为roundrobin之后，请求会分发的很均匀。如果是设置了random之后，则会呈现出随机状态。
 3. dubbo官方的示例demos项目dubbo-samples-all中，关闭了dubbo-samples-api、dubbo-samples-basic、dubbo-samples-version，这几个项目都已了解清楚。
+
+
+#2019/9/12
+
+1. 测试dubbo官方提供的EchoService的$echo方法。
+2. 测试了<dubbo:protol> 配置为name="http"的方式，使用内嵌tomcat方式的用例测试通过。
+3. 测试server="jetty"的方式。

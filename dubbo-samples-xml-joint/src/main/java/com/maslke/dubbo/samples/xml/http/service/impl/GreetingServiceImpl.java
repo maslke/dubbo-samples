@@ -1,6 +1,6 @@
-package com.maslke.dubbo.samples.xml.joint.service.impl;
+package com.maslke.dubbo.samples.xml.http.service.impl;
 
-import com.maslke.dubbo.samples.xml.joint.api.GreetingService;
+import com.maslke.dubbo.samples.xml.http.api.GreetingService;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.dubbo.rpc.RpcContext;
@@ -10,11 +10,11 @@ import org.apache.dubbo.rpc.RpcContext;
  * @date:2019/9/10
  * @version:0.0.1
  */
-public class GreetingServiceImpl2 implements GreetingService {
+public class GreetingServiceImpl implements GreetingService {
     @Override
     public String sayHi(String name) {
         System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] Hello " +
                 name + ", request from consumer: " + RpcContext.getContext().getRemoteAddress());
-        return "[Group=type2]Hello " + name + ", response from provider: " + RpcContext.getContext().getLocalAddress();
+        return "[group=type1]Hello " + name + ", response from provider: " + RpcContext.getContext().getLocalAddress();
     }
 }

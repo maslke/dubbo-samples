@@ -1,4 +1,4 @@
-package com.maslke.dubbo.samples.xml.joint.api;
+package com.maslke.dubbo.samples.xml.http.api;
 
 /**
  * @author:maslke

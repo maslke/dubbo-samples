@@ -1,4 +1,4 @@
-package com.maslke.dubbo.samples.xml.joint.bootstrap;
+package com.maslke.dubbo.samples.xml.http.bootstrap;
 
 import java.util.concurrent.CountDownLatch;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

@@ -2,12 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-    <dubbo:consumer />
+    <dubbo:consumer/>
     <dubbo:application name="dubbo-consumer" owner="maslke"/>
     <dubbo:registry address="localhost:2181" protocol="zookeeper" check="true" id="zookeeper"/>
-    <dubbo:registry protocol="multicast" />
-    <dubbo:reference registry="zookeeper" interface="com.maslke.dubbo.samples.xml.http.api.GreetingService"
-                     id="greetingService" version="2.0" loadbalance="random"/>
-    <dubbo:reference registry="zookeeper" interface="com.maslke.dubbo.samples.xml.http.api.GreetingService"
-                     id="greetingService2" version="1.0" group="group2"/>
+    <dubbo:reference interface="com.maslke.dubbo.samples.xml.http.api.GreetingService"
+                     id="greetingService" loadbalance="random"/>
 </beans>
