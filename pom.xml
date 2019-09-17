@@ -16,6 +16,7 @@
         <module>dubbo-samples-annotation</module>
         <module>dubbo-samples-api</module>
         <module>dubbo-samples-http</module>
+        <module>dubbo-samples-local</module>
     </modules>
 
     <properties>

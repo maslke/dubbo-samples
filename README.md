@@ -17,3 +17,8 @@ dubbo-samples
 1. 测试dubbo官方提供的EchoService的$echo方法。
 2. 测试了<dubbo:protol> 配置为name="http"的方式，使用内嵌tomcat方式的用例测试通过。
 3. 测试server="jetty"的方式。
+
+
+#2019/9/16
+
+1. 测试了生产者和消费者在同一个包中的情况。
