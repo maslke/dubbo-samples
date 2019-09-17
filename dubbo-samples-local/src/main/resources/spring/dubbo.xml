@@ -6,7 +6,7 @@
     <context:property-placeholder/>
     <dubbo:application name="dubbo-samples-local"/>
     <dubbo:protocol name="dubbo"/>
-    <dubbo:registry address="redis://localhost:6379"/>
+    <dubbo:registry address="zookeeper://localhost:2181"/>
     <bean id="target" class="com.maslke.dubbo.samples.local.service.impl.GreetingServiceImpl"/>
     <dubbo:service interface="com.maslke.dubbo.samples.local.api.GreetingService" ref="target"/>
     <dubbo:reference interface="com.maslke.dubbo.samples.local.api.GreetingService" id="greetingService"/>

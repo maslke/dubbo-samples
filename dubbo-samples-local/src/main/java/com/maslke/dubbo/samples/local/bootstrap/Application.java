@@ -1,9 +1,9 @@
 package com.maslke.dubbo.samples.local.bootstrap;
 
-import com.maslke.dubbo.samples.local.EmbeddedZooKeeper;
 import com.maslke.dubbo.samples.local.api.GreetingService;
-import java.util.concurrent.CountDownLatch;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.concurrent.CountDownLatch;
 
 /**
  * @author:maslke
