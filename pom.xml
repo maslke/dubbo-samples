@@ -17,6 +17,8 @@
         <module>dubbo-samples-api</module>
         <module>dubbo-samples-http</module>
         <module>dubbo-samples-local</module>
+        <module>dubbo-samples-merger</module>
+        <module>dubbo-samples-filter</module>
     </modules>
 
     <properties>

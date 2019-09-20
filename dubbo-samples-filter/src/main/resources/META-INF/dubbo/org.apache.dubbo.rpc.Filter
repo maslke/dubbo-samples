@@ -1,0 +1,2 @@
+traceFilter=com.maslke.dubbo.samples.filter.filter.TraceFilter
+traceFilter2=com.maslke.dubbo.samples.filter.filter.TraceFilter2

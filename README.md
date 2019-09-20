@@ -1,61 +1,5 @@
 dubbo-samples
 
-
-官方demos消费记录:
-<modules>
-        <module>dubbo-maven-address-plugin</module>
-        <module>dubbo-samples-annotation</module>
-<!--        <module>dubbo-samples-api</module>-->
-        <module>dubbo-samples-async</module>
-        <module>dubbo-samples-attachment</module>
-<!--        <module>dubbo-samples-basic</module>-->
-        <module>dubbo-samples-cache</module>
-        <module>dubbo-samples-chain</module>
-        <module>dubbo-samples-callback</module>
-        <module>dubbo-samples-compatible</module>
-        <module>dubbo-samples-configcenter</module>
-        <module>dubbo-samples-context</module>
-        <module>dubbo-samples-direct</module>
-        <module>dubbo-samples-docker</module>
-<!--        <module>dubbo-samples-echo</module>-->
-        <module>dubbo-samples-gateway</module>
-        <module>dubbo-samples-generic</module>
-<!--        <module>dubbo-samples-group</module>-->
-        <module>dubbo-samples-governance</module>
-<!--        <module>dubbo-samples-http</module>-->
-        <module>dubbo-samples-jetty</module>
-<!--        <module>dubbo-samples-local</module>-->
-        <module>dubbo-samples-merge</module>
-        <module>dubbo-samples-metadata-report</module>
-        <module>dubbo-samples-mock</module>
-        <module>dubbo-samples-monitor</module>
-        <module>dubbo-samples-multi-registry</module>
-        <module>dubbo-samples-notify</module>
-        <module>dubbo-samples-resilience4j</module>
-        <module>dubbo-samples-rest</module>
-        <module>dubbo-samples-scala</module>
-        <module>dubbo-samples-simplified-registry</module>
-        <module>dubbo-samples-spi-compatible</module>
-        <module>dubbo-samples-spring-hystrix</module>
-        <module>dubbo-samples-spring-boot-hystrix</module>
-        <module>dubbo-samples-stub</module>
-        <module>dubbo-samples-switch-serialization-thread</module>
-        <module>dubbo-samples-thrift</module>
-        <module>dubbo-samples-validation</module>
-<!--        <module>dubbo-samples-version</module>-->
-        <module>dubbo-samples-zipkin</module>
-        <module>dubbo-samples-zookeeper</module>
-        <module>dubbo-samples-transaction</module>
-        <module>dubbo-samples-consul</module>
-        <module>dubbo-samples-edas</module>
-        <module>dubbo-samples-nacos</module>
-        <module>dubbo-samples-metrics</module>
-        <module>dubbo-samples-environment-keys</module>
-        <module>dubbo-samples-protostuff</module>
-        <module>dubbo-samples-serialization</module>
-        <module>dubbo-samples-sentinel</module>
-    </modules>
-
 # 2019/9/10
 1. 基本掌握了dubbo:application、dubbo:service、dubbo:reference、dubbo:provider、dubbo:consumer配置的相关含义
 2. 对于dubbo:service配置中的group配置和version配置进行了尝试。group、version和interface用于唯一确定接口，消费方和提供方配置必须一致。
@@ -79,3 +23,25 @@ dubbo-samples
 
 1. 测试了生产者和消费者在同一个包中的情况。
 2. 笔记本中环境的zookeeper无法启动了，报错java.net.SocketException:权限不够。尚未解决。
+
+
+#2019/9/18
+1. 测试了mock配置的作用。在配置reference的时候，配置mock，可以在service调用出现超时等问题的时候，调用mock实现的接口。
+2. RpcContext中的属性
+3. dubbo:reference中merger="true"的作用
+4. 配置了<dubbo:parameter key="qos.port" value="3333" />
+
+#2019/9/19
+
+1. dubbo:reference中的url配置，将会绕过注册中心，进行点对点的来查找服务提供者地址。经测试，需要在url中将group和version都配置进去。同时，发现此部分功能存在着疑似bug。
+2. stub的配置
+3. filter的配置和作用
+
+#2019/9/20
+
+1. 为什么在RpcContext中设置的Attachments，经过一次调用之后，第二次调用就不生效了？
+2. dubbo中消费者关于cache的配置。
+3. 
+
+
+

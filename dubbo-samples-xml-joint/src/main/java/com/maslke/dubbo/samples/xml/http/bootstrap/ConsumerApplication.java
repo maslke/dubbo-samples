@@ -16,9 +16,12 @@ public class ConsumerApplication {
         GreetingService greetingService = applicationContext.getBean("greetingService", GreetingService.class);
         EchoService echoService = (EchoService) greetingService;
         System.out.println(echoService.$echo("hello"));
-        for (int i = 0; i < 100; i++) {
-            System.out.println(greetingService.sayHi("the-whole-world"));
-        }
+
+        System.out.println("sayHi:" + greetingService.sayHi("maslke"));
+        System.out.println("replyHi:" + greetingService.replayHi("maslke"));
+        System.out.println("sayHi:" + greetingService.sayHi("maslke", "hello world").get());
+        System.out.println("replyHi:" + greetingService.replayHi("maslke"));
+
         System.in.read();
     }
 }

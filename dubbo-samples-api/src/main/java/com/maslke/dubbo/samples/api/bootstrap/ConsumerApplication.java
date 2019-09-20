@@ -17,6 +17,16 @@ public class ConsumerApplication {
         referenceConfig.setRegistry(new RegistryConfig("zookeeper://localhost:2181"));
         referenceConfig.setApplication(new ApplicationConfig("dubbo-api-consumer"));
         referenceConfig.setInterface(GreetingService.class);
+        /**
+         * 测试stub的作用
+         */
+        referenceConfig.setStub(true);
+        /**
+         * 测试mock的作用
+         */
+        referenceConfig.setCheck(false);
+        referenceConfig.setTimeout(10000);
+        referenceConfig.setMock(true);
         GreetingService greetingService = referenceConfig.get();
         System.out.println(greetingService.sayHi("the-api-world"));
         System.in.read();

@@ -13,6 +13,11 @@ import org.apache.dubbo.rpc.RpcContext;
 public class GreetingServiceImpl implements GreetingService {
     @Override
     public String sayHi(String name) {
+        try {
+            Thread.sleep(5000);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
         System.out.println("[" + new SimpleDateFormat("HH:mm:ss").format(new Date()) + "] Hello, request from "
                 + RpcContext.getContext().getRemoteAddress());
         return "Hello, " + name + ", response from " + RpcContext.getContext().getLocalAddress();
