@@ -3,8 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <dubbo:application name="dubbo-filter-consumer">
-        <dubbo:parameter key="qos.port" value="3333" />
+        <dubbo:parameter key="qos.port" value="3333"/>
     </dubbo:application>
-    <dubbo:registry address="zookeeper://localhost:2181" />
-    <dubbo:reference interface="com.maslke.dubbo.samples.filter.api.GreetingService" id="greetingService" cache="false" />
+    <dubbo:registry address="zookeeper://localhost:2181"/>
+    <bean id="notifyService" class="com.maslke.dubbo.samples.filter.impl.NotifyServiceImpl"/>
+    <dubbo:reference interface="com.maslke.dubbo.samples.filter.api.GreetingService" id="greetingService" cache="false">
+        <dubbo:method name="sayHi" onreturn="notifyService.onReturn2"/>
+        <dubbo:method name="greeting" onreturn="notifyService.onGreetingReturn" />
+        <dubbo:method name="sayHello" onreturn="notifyService.onSayHelloReturn" />
+    </dubbo:reference>
 </beans>

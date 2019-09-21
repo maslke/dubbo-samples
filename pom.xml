@@ -19,6 +19,8 @@
         <module>dubbo-samples-local</module>
         <module>dubbo-samples-merger</module>
         <module>dubbo-samples-filter</module>
+        <module>dubbo-samples-generic-service</module>
+        <module>dubbo-samples-generic</module>
     </modules>
 
     <properties>

@@ -2,11 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
-    <dubbo:application name="dubbo-filter-provider"/>
-    <dubbo:registry address="zookeeper://localhost:2181"/>
-    <dubbo:protocol name="dubbo" port="20880"/>
-    <bean id="target" class="com.maslke.dubbo.samples.filter.impl.GreetingServiceImpl"/>
-    <dubbo:service filter="traceFilter,traceFilter2" id="greetingService"
-                   interface="com.maslke.dubbo.samples.filter.api.GreetingService" ref="target">
-    </dubbo:service>
+    <dubbo:application name="dubbo-samples-generice-service-consumer">
+        <dubbo:parameter key="qos.port" value="3333" />
+    </dubbo:application>
+    <dubbo:registry address="zookeeper://localhost:2181" />
+    <dubbo:reference id="greetingService" interface="com.maslke.dubbo.samples.generic.api.GreetingService" />
 </beans>

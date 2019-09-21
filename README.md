@@ -40,8 +40,14 @@ dubbo-samples
 #2019/9/20
 
 1. 为什么在RpcContext中设置的Attachments，经过一次调用之后，第二次调用就不生效了？
-2. dubbo中消费者关于cache的配置。
-3. 
+2. dubbo中消费者关于cache的配置。可选用的cache实现类型，以及相关的过期策略都不明确。
+
+
+#2019/9/21
+
+1. dubbo:method中onreturn和onthrow的配置。
+2. 学习GenericService。泛化服务、泛化实现。
+
 
 
 

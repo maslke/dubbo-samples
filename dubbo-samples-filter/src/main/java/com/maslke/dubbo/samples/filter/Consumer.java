@@ -12,6 +12,11 @@ public class Consumer {
         GreetingService greetingService = applicationContext.getBean(GreetingService.class);
         RpcContext.getContext().setAttachment("attachKey", "attachValue");
 
+        System.out.println(greetingService.sayHi("maslke", " hello world"));
+        System.out.println(greetingService.greeting("maslke"));
+        greetingService.sayHello("maslke");
+//        System.out.println(greetingService.sayHi(null));
+
         String prev = null;
 //        for (int i = 0; i < 10; i++) {
 //            String response = greetingService.getCache();
@@ -23,18 +28,18 @@ public class Consumer {
 //            prev =response;
 //        }
 
-        for (int i = 0; i < 10000;i++) {
-            String response = greetingService.getCache();
-            System.out.println(response);
-            if (prev == null) {
-                prev = response;
-            }
-        }
-        String response = greetingService.getCache();
-        if (!response.equals(prev)) {
-            System.out.println("the cache is expired.");
-        } else {
-            System.out.println("the cache is not expired");
-        }
+//        for (int i = 0; i < 10000;i++) {
+//            String response = greetingService.getCache();
+//            System.out.println(response);
+//            if (prev == null) {
+//                prev = response;
+//            }
+//        }
+//        String response = greetingService.getCache();
+//        if (!response.equals(prev)) {
+//            System.out.println("the cache is expired.");
+//        } else {
+//            System.out.println("the cache is not expired");
+//        }
     }
 }
