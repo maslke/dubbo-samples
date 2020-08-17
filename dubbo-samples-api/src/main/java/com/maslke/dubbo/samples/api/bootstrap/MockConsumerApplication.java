@@ -12,7 +12,8 @@ import java.util.concurrent.CountDownLatch;
 /**
  * @author maslke
  */
-public class ConsumerApplication {
+// 测试远程服务Mock
+public class MockConsumerApplication {
     public static void main(String[] args) throws Exception {
         ReferenceConfig<GreetingService> referenceConfig = new ReferenceConfig<>();
         referenceConfig.setRegistry(new RegistryConfig("redis://localhost:6379"));
@@ -21,6 +22,8 @@ public class ConsumerApplication {
         referenceConfig.setGroup("dubbo");
         referenceConfig.setVersion("1.0.0");
         referenceConfig.setTimeout(10000);
+        referenceConfig.setCheck(false);
+        referenceConfig.setMock(true);
         GreetingService greetingService = referenceConfig.get();
         System.out.println(greetingService.sayHi("the-api-world"));
         RpcContext.getContext().setAttachment("company", "alibaba");
