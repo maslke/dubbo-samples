@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
     <dubbo:application name="greeting-service-producer" owner="maslke" organization="iwhalecloud" version="0.0.1"
                        logger="log4j" />
-    <dubbo:registry address="zookeeper://localhost:2181" />
+    <dubbo:registry address="zookeeper://localhost:2181" group="dubbo1" />
     <dubbo:protocol name="dubbo" port="20880"/>
     <bean id="greetingService" class="com.maslke.dubbo.samples.xml.impl.GreetingServiceImpl" />
     <dubbo:service interface="com.maslke.dubbo.samples.xml.GreetingService" ref="greetingService" />
