@@ -20,6 +20,9 @@ public class UdpClient {
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext()) {
             String next = scanner.next();
+            if ("000".equals(next)) {
+                break;
+            }
             byteBuffer.put(next.getBytes());
             byteBuffer.flip();
             // DatagramChannel 使用send方法
