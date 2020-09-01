@@ -1,9 +1,12 @@
 package com.maslke.dubbo.samples.api.nio.reactor;
 
+import io.netty.buffer.ByteBuf;
+
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 
@@ -23,6 +26,38 @@ public class EchoHandler implements Runnable {
             this.selector.wakeup();
         } catch (IOException ex) {
             System.out.println("ex.getMessage() = " + ex.getMessage());
+        }
+    }
+
+    private void acceptHandler(SelectionKey key) throws IOException {
+        ServerSocketChannel server = (ServerSocketChannel) key.channel();
+        SocketChannel socketChannel = server.accept();
+        Selector select = key.selector();
+        // 每个通道绑定一个buffer，buffer不共享，给channel独占
+        ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+        //  最后一个参数，可以附加任何需要的数据
+        socketChannel.register(select, SelectionKey.OP_READ, byteBuffer);
+    }
+
+
+    private void readHandler(SelectionKey key) throws IOException {
+        SocketChannel client = (SocketChannel) key.channel();
+        ByteBuffer byteBuffer = (ByteBuffer) key.attachment();
+        // byteBuffer分配的空间可能不够
+        while (true) {
+            int length = client.read(byteBuffer);
+            if (length > 0) {
+                byteBuffer.flip();
+                while (byteBuffer.hasRemaining()) {
+                    client.write(byteBuffer);
+                }
+                byteBuffer.clear();
+
+            } else if (length == 0) {
+                break;
+            } else {
+                client.close();
+            }
         }
     }
 
